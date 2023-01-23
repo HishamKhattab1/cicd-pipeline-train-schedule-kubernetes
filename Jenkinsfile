@@ -43,12 +43,14 @@ pipeline {
                 branch 'master'
             }
             steps {
+                script {
                 input 'Deploy to Production?'
                 milestone(1)
                 kubernetesDeploy{
                     kubeconfigId:'k8s-configuration'
                     configs:'train-schedule-kube.yml'
                     enableConfigSubstitution:true
+                    }
                 }
             }
         }
