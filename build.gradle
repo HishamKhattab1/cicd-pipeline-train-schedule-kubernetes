@@ -1,6 +1,6 @@
 plugins {
   //inlude the nodeJS plugin to execute nodejs and npm tasks
-  id "com.liferay.yarn" version "8.0.0"
+	id "com.moowork.node" version "1.2.0"
 }
 
 node {
@@ -28,8 +28,8 @@ task zip(type: Zip) {
 }
 
 //declare task dependencies
-//build.dependsOn zip
-//zip.dependsOn npm_build
-//npm_build.dependsOn npm_test
-//npm_test.dependsOn npmInstall
-//npm_build.dependsOn npmInstall
+build.dependsOn zip
+zip.dependsOn npm_build
+npm_build.dependsOn npm_test
+npm_test.dependsOn npmInstall
+npm_build.dependsOn npmInstall
